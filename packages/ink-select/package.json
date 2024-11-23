@@ -1,0 +1,34 @@
+{
+	"name": "@yall-labs/ink-select",
+	"version": "1.0.0",
+	"license": "MIT",
+	"description": "🧸 Ink Select component for tedy",
+	"type": "module",
+	"engines": {
+		"node": ">=18"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "rm -rf dist; tsc",
+		"dev": "tsc --watch"
+	},
+	"files": ["dist"],
+	"dependencies": {
+		"@inkjs/ui": "^2.0.0",
+		"@yall-labs/option-map": "workspace:*",
+		"chalk": "^5.2.0",
+		"figures": "^6.1.0"
+	},
+	"peerDependencies": {
+		"ink": "^5.0.1",
+		"react": "^18.2.0"
+	},
+	"devDependencies": {
+		"@total-typescript/tsconfig": "^1.0.4",
+		"@types/node": "20",
+		"@types/react": "^18.0.32",
+		"ink-testing-library": "^3.0.0",
+		"neverthrow": "^8.1.1"
+	}
+}

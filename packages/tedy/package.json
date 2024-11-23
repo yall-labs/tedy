@@ -1,0 +1,55 @@
+{
+	"name": "tedy",
+	"version": "0.1.0",
+	"license": "ISC",
+	"description": "🧸 Your little Terminal Buddy!",
+	"bin": {
+		"tedy": "dist/index.js",
+		"🧸": "dist/index.js"
+	},
+	"type": "module",
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"rm:dist": "rm -rf dist",
+		"rm:schema": "rm ./src/instant/instant.schema.ts",
+		"cp:schema": "cp ../../instant.schema.ts ./src/instant/instant.schema.ts",
+		"ln:schema": "cd src/instant && ln -s ../../../../instant.schema.ts .",
+		"prebuild": "pnpm rm:dist; pnpm rm:schema; pnpm cp:schema",
+		"build": "ncc build src/index.tsx -m -e ink -e sqlite3 -e react; pnpm exec:link; pnpm rm:schema; pnpm ln:schema",
+		"exec:link": "npm link; chmod +x dist/index.js",
+		"predev": "pnpm rm:dist; tsc; pnpm exec:link",
+		"dev": "tsc --watch"
+	},
+	"files": ["dist"],
+	"dependencies": {
+		"ink": "^5.0.1",
+		"react": "^18.2.0",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"@inkjs/ui": "^2.0.0",
+		"@instantdb/core": "^0.14.30",
+		"@instantdb/react": "^0.14.30",
+		"@keyv/sqlite": "^4.0.1",
+		"@total-typescript/tsconfig": "^1.0.4",
+		"@types/node": "20",
+		"@types/react": "^18.0.32",
+		"@vercel/ncc": "^0.38.2",
+		"@yall-labs/ink-select": "workspace:*",
+		"@yall-labs/multi-select": "workspace:*",
+		"chalk": "^5.2.0",
+		"figures": "^6.1.0",
+		"ink-testing-library": "^3.0.0",
+		"is-online": "^11.0.0",
+		"javascript-time-ago": "^2.5.11",
+		"keyv": "^5.1.0",
+		"meow": "^11.0.0",
+		"neverthrow": "^8.1.1",
+		"react-devtools-core": "^6.0.1",
+		"react-router-dom": "^6",
+		"react-time-ago": "^7.3.3",
+		"type-fest": "^4.27.0"
+	}
+}

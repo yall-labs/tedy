@@ -1,0 +1,12 @@
+{
+	"extends": "@total-typescript/tsconfig/tsc/no-dom/library-monorepo",
+	"compilerOptions": {
+		"outDir": "dist",
+		"jsx": "react-jsx",
+		"composite": false,
+		"sourceMap": false,
+		"declaration": false,
+		"declarationMap": false
+	},
+	"include": ["src"]
+}
